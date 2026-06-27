@@ -8,7 +8,7 @@ from quanthack.reporting.dashboard import DashboardOptions, serve_dashboard
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Run the local QuanHack dashboard.")
+    parser = argparse.ArgumentParser(description="Run the local Claude Agent Trader dashboard.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--backtest-dir", default="outputs/backtests")

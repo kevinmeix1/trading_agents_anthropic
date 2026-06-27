@@ -147,7 +147,7 @@ class TechnologyPrizeJudgePacket:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Technology Prize Judge Packet",
+                "# Claude Agent Trader Technology Prize Judge Packet",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.status}**",
@@ -155,7 +155,7 @@ class TechnologyPrizeJudgePacket:
                 "## One-Screen Pitch",
                 "",
                 (
-                    "QuanHack is presented as an AgentSDK-centered trading research control plane: "
+                    "Claude Agent Trader is presented as an AgentSDK-centered trading research control plane: "
                     "specialist agents call read-only evidence tools, write shared blackboard state, "
                     "handoff to risk/deployment/critic roles, and package a judge-verifiable audit trail."
                 ),

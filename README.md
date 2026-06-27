@@ -1,4 +1,4 @@
-# QuantHack
+# Claude Agent Trader
 
 Starter workspace for the Model to Market / quantitative trading hackathon.
 

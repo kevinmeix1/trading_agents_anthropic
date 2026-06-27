@@ -677,7 +677,7 @@ class TechnologyPrizeAgentsTest(TestCase):
             dashboard = build_technology_prize_dashboard(pack)
 
         self.assertIn("<!doctype html>", dashboard.html)
-        self.assertIn("QuanHack Technology Prize Dashboard", dashboard.html)
+        self.assertIn("Claude Agent Trader Technology Prize Dashboard", dashboard.html)
         self.assertIn("Agent Graph", dashboard.html)
         self.assertIn("Why This Is AI-Native", dashboard.html)
         self.assertIn("Executable Workflow", dashboard.html)

@@ -15,7 +15,7 @@ from quanthack.market.crypto_proxy_data import (
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "Fetch research-only crypto proxy candles into QuanHack CSV format. "
+            "Fetch research-only crypto proxy candles into Claude Agent Trader CSV format. "
             "This uses Binance USDT spot klines, not the official competition feed."
         )
     )

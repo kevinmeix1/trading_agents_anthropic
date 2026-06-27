@@ -60,14 +60,14 @@ def serve_dashboard(
     server = _bind_server(host=host, port=port, handler=handler)
     actual_port = server.server_address[1]
     url = f"http://{host}:{actual_port}"
-    print(f"QuanHack dashboard: {url}")
+    print(f"Claude Agent Trader dashboard: {url}")
     print("Press Ctrl+C to stop.")
     if open_browser:
         webbrowser.open(url)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\nStopping QuanHack dashboard.")
+        print("\nStopping Claude Agent Trader dashboard.")
     finally:
         server.server_close()
 
@@ -360,7 +360,7 @@ DASHBOARD_HTML = r"""<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>QuanHack Dashboard</title>
+  <title>Claude Agent Trader Dashboard</title>
   <style>
     :root {
       --bg: #f5f7fa;
@@ -654,7 +654,7 @@ DASHBOARD_HTML = r"""<!doctype html>
   <header>
     <div class="topbar">
       <div>
-        <h1>QuanHack Trading Dashboard</h1>
+        <h1>Claude Agent Trader Trading Dashboard</h1>
         <div class="subline" id="freshness">Loading local results...</div>
       </div>
       <nav class="tabs" aria-label="Dashboard views">

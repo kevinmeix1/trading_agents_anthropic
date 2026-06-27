@@ -70,7 +70,7 @@ class JudgeDemoRunbook:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Technology Prize Judge Demo Runbook",
+                "# Claude Agent Trader Technology Prize Judge Demo Runbook",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.status}**",
@@ -86,7 +86,7 @@ class JudgeDemoRunbook:
                 "## Closing Line",
                 "",
                 (
-                    "QuanHack is not only a trading bot; it is an AI-native research and deployment "
+                    "Claude Agent Trader is not only a trading bot; it is an AI-native research and deployment "
                     "control plane where agents inspect evidence, validate their topology, run safety "
                     "guardrails, and keep MT5 execution authority outside the model boundary."
                 ),

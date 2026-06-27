@@ -54,7 +54,7 @@ class AgentTraceReplay:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack AgentSDK Trace Replay",
+                "# Claude Agent Trader AgentSDK Trace Replay",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Trace ID: `{self.trace_id}`",

@@ -36,7 +36,7 @@ class AnthropicCriticResult:
 
     def to_markdown(self) -> str:
         lines = [
-            "# QuanHack Guarded Anthropic Critic",
+            "# Claude Agent Trader Guarded Anthropic Critic",
             "",
             "This is the optional Anthropic-credits path for independent review.",
             "It is disabled unless the operator explicitly arms it.",
@@ -154,7 +154,7 @@ def build_anthropic_critic_prompt(report: TechnologyPrizeReport) -> str:
     ]
     return "\n".join(
         [
-            "Review QuanHack for the separate technology prize.",
+            "Review Claude Agent Trader for the separate technology prize.",
             "Focus on technical merit, not trading P&L.",
             "",
             "Please return:",

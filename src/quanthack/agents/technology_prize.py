@@ -133,7 +133,7 @@ class TechnologyPrizeReport:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack AgentSDK Technology Prize Control Plane",
+                "# Claude Agent Trader AgentSDK Technology Prize Control Plane",
                 "",
                 "This report turns the existing trading system into a demoable agentic workflow.",
                 "It is safe to run locally: the default path reads research artifacts and never places orders.",

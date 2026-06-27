@@ -30,7 +30,7 @@ def build_research_report(
     strategy_name: str,
     data_health: MarketDataHealthReport | None = None,
     walk_forward: WalkForwardResult | None = None,
-    title: str = "QuantHack Research Report",
+    title: str = "Claude Agent Trader Research Report",
     generated_at: datetime | None = None,
     sweep_limit: int = 6,
 ) -> ResearchReport:

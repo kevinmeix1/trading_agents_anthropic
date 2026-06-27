@@ -16,7 +16,7 @@ class TechnologyPrizeDashboard:
 def build_technology_prize_dashboard(
     pack: TechnologyPrizeDemoPack,
     *,
-    title: str = "QuanHack Technology Prize Dashboard",
+    title: str = "Claude Agent Trader Technology Prize Dashboard",
     generated_at: datetime | None = None,
 ) -> TechnologyPrizeDashboard:
     generated = generated_at or datetime.now(tz=timezone.utc)
@@ -224,7 +224,7 @@ def build_technology_prize_dashboard(
   <section>
     <h2>Judge Pitch</h2>
     <div class="panel">
-      QuanHack is a safe agentic trading-research system: Agents SDK owns the
+      Claude Agent Trader is a safe agentic trading-research system: Agents SDK owns the
       orchestration layer, read-only tools summarize verifiable artifacts,
       risk and MT5 boundaries are explicit, and Anthropic can provide an
       independent critic pass when credits are armed.

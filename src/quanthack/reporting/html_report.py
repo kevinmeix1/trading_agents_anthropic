@@ -17,7 +17,7 @@ class HtmlReport:
 def build_journal_html_report(
     *,
     records: list[dict],
-    title: str = "QuantHack Dry-Run Journal",
+    title: str = "Claude Agent Trader Dry-Run Journal",
     generated_at: datetime | None = None,
     recent_limit: int = 10,
 ) -> HtmlReport:

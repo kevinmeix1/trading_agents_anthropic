@@ -45,7 +45,7 @@ class AgentGuardrailSuite:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Agent Guardrail Suite",
+                "# Claude Agent Trader Agent Guardrail Suite",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.status}**",

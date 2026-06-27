@@ -26,7 +26,7 @@ class OperatorDashboardTest(TestCase):
                 ticket_csv=paths["tickets"],
             )
 
-        self.assertIn("QuanHack Live Operator Dashboard", dashboard.html)
+        self.assertIn("Claude Agent Trader Live Operator Dashboard", dashboard.html)
         self.assertIn("conservative: demo", dashboard.html)
         self.assertIn("NEEDS_CONTRACT_SPEC", dashboard.html)
         self.assertIn("Fill MT5 contract specs", dashboard.html)

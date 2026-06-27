@@ -200,7 +200,7 @@ class TechnologyPrizeDemoPack:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Technology Prize Demo Pack",
+                "# Claude Agent Trader Technology Prize Demo Pack",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.overall_status}**",
@@ -208,7 +208,7 @@ class TechnologyPrizeDemoPack:
                 "## Judge Pitch",
                 "",
                 (
-                    "QuanHack is now structured as a safe agentic trading-research system: "
+                    "Claude Agent Trader is now structured as a safe agentic trading-research system: "
                     "Agents SDK owns orchestration, function tools summarize verifiable artifacts, "
                     "risk and MT5 boundaries are explicit, and Anthropic can act as an independent "
                     "critic when credits are available."

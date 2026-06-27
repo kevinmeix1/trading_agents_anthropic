@@ -79,7 +79,7 @@ class CliTest(TestCase):
     def test_root_cli_prints_command_index(self) -> None:
         output = _capture(cli.main, ["--help"])
 
-        self.assertIn("QuanHack CLI", output)
+        self.assertIn("Claude Agent Trader CLI", output)
         self.assertIn("backtest", output)
         self.assertIn("walk-forward", output)
         self.assertIn("tech-prize-demo", output)

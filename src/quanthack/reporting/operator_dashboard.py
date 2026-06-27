@@ -33,7 +33,7 @@ def build_operator_dashboard(
     allocation_csv: str | Path,
     monitor_csv: str | Path,
     ticket_csv: str | Path,
-    title: str = "QuanHack Live Operator Dashboard",
+    title: str = "Claude Agent Trader Live Operator Dashboard",
     generated_at: datetime | None = None,
 ) -> OperatorDashboard:
     generated = generated_at or datetime.now(tz=ZoneInfo("Europe/London"))

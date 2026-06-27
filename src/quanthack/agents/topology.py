@@ -76,7 +76,7 @@ class AgentTopologyReport:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack AgentSDK Topology Report",
+                "# Claude Agent Trader AgentSDK Topology Report",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.status}**",

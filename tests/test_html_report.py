@@ -31,7 +31,7 @@ class HtmlReportTest(TestCase):
         )
 
         self.assertIn("<!doctype html>", report.html)
-        self.assertIn("QuantHack Dry-Run Journal", report.html)
+        self.assertIn("Claude Agent Trader Dry-Run Journal", report.html)
         self.assertIn("Trimmed By Risk", report.html)
         self.assertIn("$25,000", report.html)
         self.assertIn("EURUSD", report.html)

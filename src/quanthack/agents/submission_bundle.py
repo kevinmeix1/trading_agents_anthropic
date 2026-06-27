@@ -110,7 +110,7 @@ class TechnologyPrizeSubmissionBundle:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Technology Prize Submission Bundle",
+                "# Claude Agent Trader Technology Prize Submission Bundle",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.status}**",

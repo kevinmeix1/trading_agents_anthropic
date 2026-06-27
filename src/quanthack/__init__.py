@@ -1,4 +1,4 @@
-"""QuantHack starter package."""
+"""Claude Agent Trader starter package."""
 
 from quanthack.backtesting.backtest import (
     BacktestEngine,

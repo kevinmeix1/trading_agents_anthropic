@@ -74,7 +74,7 @@ class LocalAgentWorkflow:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Local Agent Workflow",
+                "# Claude Agent Trader Local Agent Workflow",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Status: **{self.status}**",

@@ -14,7 +14,7 @@ DEFAULT_QUOTE_OUTPUT = "data/downloaded_backtest_quotes.csv"
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Convert downloaded tick-level backtest data into QuanHack backtest CSVs."
+        description="Convert downloaded tick-level backtest data into Claude Agent Trader backtest CSVs."
     )
     parser.add_argument("--config", default="configs/default.toml")
     parser.add_argument("--input", default=None)

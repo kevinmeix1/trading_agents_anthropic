@@ -11,7 +11,7 @@ For this project we use it as a read-only bridge:
 - never call `order_send`;
 - never place paper or live trades from this command.
 
-The loop still writes only local QuanHack outputs:
+The loop still writes only local Claude Agent Trader outputs:
 
 - `outputs/live_dry_run_journal.jsonl`
 - `outputs/live_competition_monitor.csv`

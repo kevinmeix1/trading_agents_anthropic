@@ -1,4 +1,4 @@
-"""Command-line entry points for QuanHack workflows."""
+"""Command-line entry points for Claude Agent Trader workflows."""
 
 from __future__ import annotations
 
@@ -374,7 +374,7 @@ COMMANDS: dict[str, tuple[str, str]] = {
     ),
     "import-backtest-data": (
         "quanthack.cli.import_backtest_data",
-        "Convert downloaded Parquet backtest data into QuanHack CSVs.",
+        "Convert downloaded Parquet backtest data into Claude Agent Trader CSVs.",
     ),
     "archive-data-coverage": (
         "quanthack.cli.archive_data_coverage",
@@ -382,11 +382,11 @@ COMMANDS: dict[str, tuple[str, str]] = {
     ),
     "fetch-crypto-proxy-data": (
         "quanthack.cli.fetch_crypto_proxy_data",
-        "Fetch research-only Binance crypto proxy data into QuanHack CSVs.",
+        "Fetch research-only Binance crypto proxy data into Claude Agent Trader CSVs.",
     ),
     "merge-market-data": (
         "quanthack.cli.merge_market_data",
-        "Merge and crop QuanHack price/quote CSV files.",
+        "Merge and crop Claude Agent Trader price/quote CSV files.",
     ),
     "generate-sample-data": (
         "quanthack.cli.generate_sample_data",
@@ -456,7 +456,7 @@ COMMANDS: dict[str, tuple[str, str]] = {
 
 
 def _print_help() -> None:
-    print("QuanHack CLI")
+    print("Claude Agent Trader CLI")
     print("Usage: quanthack <command> [options]")
     print("Commands:")
     width = max(len(name) for name in COMMANDS)

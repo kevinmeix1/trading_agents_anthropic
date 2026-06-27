@@ -62,7 +62,7 @@ class TechnologyPrizeDemoRehearsal:
     def to_markdown(self) -> str:
         return "\n".join(
             [
-                "# QuanHack Technology Prize Demo Rehearsal",
+                "# Claude Agent Trader Technology Prize Demo Rehearsal",
                 "",
                 f"Generated: `{self.generated_at.isoformat()}`",
                 f"Overall status: **{self.status}**",

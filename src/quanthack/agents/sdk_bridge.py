@@ -43,7 +43,7 @@ def create_agents_sdk_app(
 ) -> AgentsSdkApp:
     """Build Agents SDK objects without running an online model call.
 
-    The default QuanHack workflow stays deterministic and offline. This bridge
+    The default Claude Agent Trader workflow stays deterministic and offline. This bridge
     exists so the technology-prize demo can be armed later with real SDK
     `Runner` calls while tests can still verify the agent graph locally.
     """
@@ -420,7 +420,7 @@ def create_agents_sdk_app(
     chief = sdk.Agent(
         name="Chief Trading Agent",
         instructions=(
-            "You are the QuanHack trading-system control-plane agent. "
+            "You are the Claude Agent Trader trading-system control-plane agent. "
             "Delegate research, risk, data, deployment, and reporting checks to specialists. "
             "Never place live trades. Summarize evidence, gaps, and next actions."
         ),

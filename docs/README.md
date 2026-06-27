@@ -1,4 +1,4 @@
-# QuanHack Docs
+# Claude Agent Trader Docs
 
 Read the first four onboarding docs in order, then jump by topic.
 

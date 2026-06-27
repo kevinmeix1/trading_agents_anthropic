@@ -88,7 +88,7 @@ The strongest claims are:
 - Specialist agents decompose the system into data health, alpha research, risk,
   regime science, experiment audit, deployment, reporting, and independent
   critique.
-- Agents use grounded read-only function tools that call real QuanHack modules.
+- Agents use grounded read-only function tools that call real Claude Agent Trader modules.
 - Anthropic credits are used for independent critique, not uncontrolled trading.
 - Online model calls are guarded by explicit arming flags.
 - MT5 remains outside the AI action boundary: agents can inspect ticket sheets

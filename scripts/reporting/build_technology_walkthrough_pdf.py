@@ -29,7 +29,7 @@ from reportlab.platypus import (
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 REPORT_DIR = PROJECT_ROOT / "outputs" / "reports"
 OUTPUT_DIR = PROJECT_ROOT / "output" / "pdf"
-PDF_PATH = OUTPUT_DIR / "quanthack_technology_walkthrough.pdf"
+PDF_PATH = OUTPUT_DIR / "claude_agent_trader_technology_walkthrough.pdf"
 
 
 NAVY = colors.HexColor("#111827")
@@ -69,8 +69,8 @@ def main() -> None:
         leftMargin=0.58 * inch,
         topMargin=0.58 * inch,
         bottomMargin=0.55 * inch,
-        title="QuanHack Technology Walkthrough",
-        author="QuanHack",
+        title="Claude Agent Trader Technology Walkthrough",
+        author="Claude Agent Trader",
         subject="AgentSDK technology-prize architecture walkthrough",
     )
     styles = build_styles()
@@ -225,7 +225,7 @@ def add_cover(story: list[Any], styles: dict[str, ParagraphStyle], data: DocData
     max_score = data.rubric.get("max_score", 0)
     generated = data.submission.get("generated_at", datetime.now(tz=timezone.utc).isoformat())
     story.append(Spacer(1, 0.3 * inch))
-    story.append(Paragraph("QuanHack Technology Walkthrough", styles["title"]))
+    story.append(Paragraph("Claude Agent Trader Technology Walkthrough", styles["title"]))
     story.append(
         Paragraph(
             "A detailed PDF guide to the AgentSDK-centered, AI-native architecture built for the separate technology prize. "
@@ -264,7 +264,7 @@ def add_executive_summary(story: list[Any], styles: dict[str, ParagraphStyle], d
     story.append(Paragraph("1. Executive Snapshot", styles["h1"]))
     story.append(
         Paragraph(
-            "QuanHack has been wrapped as a technology-prize submission around a safe agentic control plane. "
+            "Claude Agent Trader has been wrapped as a technology-prize submission around a safe agentic control plane. "
             "The trading engine still supplies research artifacts, backtests, risk outputs, dashboards, and MT5 ticket sheets. "
             "The new technology layer makes those artifacts inspectable by specialist agents and proves the boundary between AI reasoning and trading authority.",
             styles["body"],
@@ -529,7 +529,7 @@ def add_appendix(story: list[Any], styles: dict[str, ParagraphStyle], data: DocD
     story.append(
         InfoBox(
             [
-                "QuanHack is not just a trading bot. It is an AI-native research and deployment control plane.",
+                "Claude Agent Trader is not just a trading bot. It is an AI-native research and deployment control plane.",
                 "AgentSDK coordinates specialist agents over real project evidence.",
                 "Anthropic credits support independent critique rather than uncontrolled action.",
                 "Guardrails prove that models cannot place trades or spend credits without explicit arming.",
@@ -877,7 +877,7 @@ def draw_page_frame(canvas: Any, doc: Any) -> None:
     canvas.line(doc.leftMargin, 0.42 * inch, letter[0] - doc.rightMargin, 0.42 * inch)
     canvas.setFillColor(MUTED)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(doc.leftMargin, 0.25 * inch, "QuanHack Technology Walkthrough")
+    canvas.drawString(doc.leftMargin, 0.25 * inch, "Claude Agent Trader Technology Walkthrough")
     canvas.drawRightString(letter[0] - doc.rightMargin, 0.25 * inch, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -888,7 +888,7 @@ def draw_cover_footer(canvas: Any, doc: Any) -> None:
     canvas.rect(0, letter[1] - 0.18 * inch, letter[0], 0.18 * inch, fill=1, stroke=0)
     canvas.setFillColor(MUTED)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(doc.leftMargin, 0.25 * inch, "Generated from current QuanHack technology-prize artifacts.")
+    canvas.drawString(doc.leftMargin, 0.25 * inch, "Generated from current Claude Agent Trader technology-prize artifacts.")
     canvas.drawRightString(letter[0] - doc.rightMargin, 0.25 * inch, f"Page {doc.page}")
     canvas.restoreState()
 

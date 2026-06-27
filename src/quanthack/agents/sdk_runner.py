@@ -44,7 +44,7 @@ class AgentsSdkRunnerResult:
 
     def to_markdown(self) -> str:
         lines = [
-            "# QuanHack Guarded Agents SDK Runner",
+            "# Claude Agent Trader Guarded Agents SDK Runner",
             "",
             "This is the optional online demo path for the technology prize.",
             "It is disabled unless the operator explicitly arms it.",
@@ -188,7 +188,7 @@ def build_judge_demo_prompt(report: TechnologyPrizeReport) -> str:
     ]
     return "\n".join(
         [
-            "You are presenting QuanHack for the separate technology prize.",
+            "You are presenting Claude Agent Trader for the separate technology prize.",
             "Use the read-only tools if you need more detail, then produce a concise judge-facing brief.",
             "",
             "Required sections:",
@@ -229,7 +229,7 @@ def _build_run_config(*, sdk: Any, model: str) -> Any:
         return None
     return sdk.RunConfig(
         model=model,
-        workflow_name="QuanHack Technology Prize Demo",
+        workflow_name="Claude Agent Trader Technology Prize Demo",
         trace_metadata={
             "project": "quanthack",
             "mode": "read_only_technology_prize",

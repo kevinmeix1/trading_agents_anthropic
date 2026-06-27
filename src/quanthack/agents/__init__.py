@@ -1,0 +1,183 @@
+"""Agentic control-plane helpers for technology-prize demos."""
+
+from quanthack.agents.anthropic_critic import (
+    AnthropicCriticResult,
+    run_guarded_anthropic_critic,
+    write_anthropic_critic_report,
+)
+from quanthack.agents.demo_pack import (
+    DemoCommand,
+    DemoPackArtifact,
+    DemoPackCheck,
+    TechnologyPrizeDemoPack,
+    build_technology_prize_demo_pack,
+    write_technology_prize_demo_pack,
+)
+from quanthack.agents.demo_rehearsal import (
+    DemoRehearsalStep,
+    TechnologyPrizeDemoRehearsal,
+    build_technology_prize_demo_rehearsal,
+    write_technology_prize_demo_rehearsal,
+)
+from quanthack.agents.demo_director import (
+    DemoRiskNote,
+    DemoRunbookStep,
+    JudgeDemoRunbook,
+    build_judge_demo_runbook,
+    write_judge_demo_runbook,
+)
+from quanthack.agents.guardrails import (
+    AgentGuardrailCheck,
+    AgentGuardrailSuite,
+    build_agent_guardrail_suite,
+    write_agent_guardrail_suite,
+)
+from quanthack.agents.judge_packet import (
+    JudgeEvidenceLink,
+    JudgeRequirement,
+    TechnologyPrizeJudgePacket,
+    build_technology_prize_judge_packet,
+    write_technology_prize_judge_packet,
+)
+from quanthack.agents.rubric import (
+    RubricCriterion,
+    TechnologyPrizeRubric,
+    build_technology_prize_rubric,
+    write_technology_prize_rubric,
+)
+from quanthack.agents.red_team import (
+    RedTeamChallenge,
+    RedTeamCheck,
+    TechnologyPrizeRedTeamReport,
+    build_technology_prize_red_team_report,
+    write_technology_prize_red_team_report,
+)
+from quanthack.agents.sdk_bridge import (
+    AgentsSdkApp,
+    AgentsSdkUnavailableError,
+    create_agents_sdk_app,
+)
+from quanthack.agents.sdk_runner import (
+    AgentsSdkRunnerResult,
+    run_guarded_agents_sdk_demo,
+    write_agents_sdk_runner_report,
+)
+from quanthack.agents.submission_bundle import (
+    SubmissionArtifact,
+    SubmissionCommand,
+    TechnologyPrizeSubmissionBundle,
+    build_technology_prize_submission_bundle,
+    write_technology_prize_submission_bundle,
+)
+from quanthack.agents.technology_prize import (
+    AgentNode,
+    AgentSdkStatus,
+    AgentToolSpec,
+    EvidenceArtifact,
+    ModelProviderReadiness,
+    TechnologyPrizeReport,
+    build_agent_architecture,
+    detect_agents_sdk,
+    detect_model_providers,
+    run_local_technology_prize_demo,
+    write_technology_prize_report,
+)
+from quanthack.agents.topology import (
+    AgentHandoffEdge,
+    AgentToolCoverage,
+    AgentTopologyCheck,
+    AgentTopologyReport,
+    build_agent_topology_report,
+    write_agent_topology_report,
+)
+from quanthack.agents.trace_replay import (
+    AgentTraceReplay,
+    AgentTraceSpan,
+    build_agent_trace_replay,
+    write_agent_trace_replay,
+)
+from quanthack.agents.workflow import (
+    LocalAgentWorkflow,
+    WorkflowBlackboardItem,
+    WorkflowHandoff,
+    WorkflowStep,
+    run_local_agent_workflow,
+    write_local_agent_workflow,
+)
+
+__all__ = [
+    "AgentNode",
+    "AgentSdkApp",
+    "AgentsSdkRunnerResult",
+    "AgentSdkStatus",
+    "AgentHandoffEdge",
+    "AgentToolSpec",
+    "AgentToolCoverage",
+    "AgentTopologyCheck",
+    "AgentTopologyReport",
+    "AgentTraceReplay",
+    "AgentTraceSpan",
+    "AgentsSdkUnavailableError",
+    "AnthropicCriticResult",
+    "AgentGuardrailCheck",
+    "AgentGuardrailSuite",
+    "DemoCommand",
+    "DemoPackArtifact",
+    "DemoPackCheck",
+    "DemoRiskNote",
+    "DemoRehearsalStep",
+    "DemoRunbookStep",
+    "EvidenceArtifact",
+    "JudgeEvidenceLink",
+    "JudgeDemoRunbook",
+    "JudgeRequirement",
+    "ModelProviderReadiness",
+    "RedTeamChallenge",
+    "RedTeamCheck",
+    "RubricCriterion",
+    "SubmissionArtifact",
+    "SubmissionCommand",
+    "TechnologyPrizeDemoPack",
+    "TechnologyPrizeDemoRehearsal",
+    "TechnologyPrizeJudgePacket",
+    "TechnologyPrizeReport",
+    "TechnologyPrizeRedTeamReport",
+    "TechnologyPrizeRubric",
+    "TechnologyPrizeSubmissionBundle",
+    "LocalAgentWorkflow",
+    "WorkflowBlackboardItem",
+    "WorkflowHandoff",
+    "WorkflowStep",
+    "build_agent_architecture",
+    "build_agent_guardrail_suite",
+    "build_agent_topology_report",
+    "build_agent_trace_replay",
+    "build_judge_demo_runbook",
+    "build_technology_prize_demo_rehearsal",
+    "build_technology_prize_judge_packet",
+    "build_technology_prize_red_team_report",
+    "build_technology_prize_rubric",
+    "build_technology_prize_submission_bundle",
+    "build_technology_prize_demo_pack",
+    "create_agents_sdk_app",
+    "detect_agents_sdk",
+    "detect_model_providers",
+    "run_guarded_anthropic_critic",
+    "run_guarded_agents_sdk_demo",
+    "run_local_agent_workflow",
+    "run_local_technology_prize_demo",
+    "write_anthropic_critic_report",
+    "write_agent_guardrail_suite",
+    "write_agent_topology_report",
+    "write_agent_trace_replay",
+    "write_agents_sdk_runner_report",
+    "write_judge_demo_runbook",
+    "write_technology_prize_demo_rehearsal",
+    "write_technology_prize_red_team_report",
+    "write_technology_prize_rubric",
+    "write_technology_prize_submission_bundle",
+    "write_technology_prize_demo_pack",
+    "write_technology_prize_judge_packet",
+    "write_technology_prize_report",
+    "write_local_agent_workflow",
+]

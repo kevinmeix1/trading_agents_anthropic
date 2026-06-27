@@ -1,0 +1,162 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quanthack"
+version = "0.1.0"
+description = "Slow, risk-first starter project for a quantitative trading hackathon."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+data = [
+  "pyarrow>=15",
+]
+mt5 = [
+  "MetaTrader5>=5.0.45; platform_system == 'Windows'",
+]
+agent = [
+  "openai-agents>=0.2",
+]
+providers = [
+  "anthropic>=0.60",
+]
+dev = [
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "pytest>=8",
+]
+
+[project.scripts]
+quanthack = "quanthack.cli:main"
+quanthack-backtest = "quanthack.cli.backtest:main"
+quanthack-portfolio-backtest = "quanthack.cli.portfolio_backtest:main"
+quanthack-compare = "quanthack.cli.compare_strategies:main"
+quanthack-walk-forward = "quanthack.cli.walk_forward:main"
+quanthack-sweep = "quanthack.cli.parameter_sweep:main"
+quanthack-research-report = "quanthack.cli.research_report:main"
+quanthack-hackathon-readiness = "quanthack.cli.hackathon_readiness:main"
+quanthack-operator-dashboard = "quanthack.cli.operator_dashboard:main"
+quanthack-tech-prize-demo = "quanthack.cli.tech_prize_demo:main"
+quanthack-tech-prize-pack = "quanthack.cli.tech_prize_pack:main"
+quanthack-tech-prize-dashboard = "quanthack.cli.tech_prize_dashboard:main"
+quanthack-tech-prize-workflow = "quanthack.cli.tech_prize_workflow:main"
+quanthack-tech-prize-trace = "quanthack.cli.tech_prize_trace:main"
+quanthack-tech-prize-guardrails = "quanthack.cli.tech_prize_guardrails:main"
+quanthack-tech-prize-topology = "quanthack.cli.tech_prize_topology:main"
+quanthack-tech-prize-runbook = "quanthack.cli.tech_prize_runbook:main"
+quanthack-tech-prize-rehearse = "quanthack.cli.tech_prize_rehearse:main"
+quanthack-tech-prize-rubric = "quanthack.cli.tech_prize_rubric:main"
+quanthack-tech-prize-red-team = "quanthack.cli.tech_prize_red_team:main"
+quanthack-tech-prize-submit = "quanthack.cli.tech_prize_submit:main"
+quanthack-tech-prize-judge-packet = "quanthack.cli.tech_prize_judge_packet:main"
+quanthack-strategy-demo = "quanthack.cli.strategy_demo:main"
+quanthack-ml-alpha-report = "quanthack.cli.ml_alpha_report:main"
+quanthack-time-series-report = "quanthack.cli.time_series_report:main"
+quanthack-router-report = "quanthack.cli.router_report:main"
+quanthack-portfolio-attribution-report = "quanthack.cli.portfolio_attribution_report:main"
+quanthack-experiment-leaderboard = "quanthack.cli.experiment_leaderboard:main"
+quanthack-candidate-scorecard = "quanthack.cli.candidate_scorecard:main"
+quanthack-research-candidate-gate = "quanthack.cli.research_candidate_gate:main"
+quanthack-fold-complement = "quanthack.cli.fold_complement:main"
+quanthack-fold-trade-attribution = "quanthack.cli.fold_trade_attribution:main"
+quanthack-fold-regime-diagnostics = "quanthack.cli.fold_regime_diagnostics:main"
+quanthack-fold-symbol-evidence = "quanthack.cli.fold_symbol_evidence:main"
+quanthack-fold-symbol-evidence-sweep = "quanthack.cli.fold_symbol_evidence_sweep:main"
+quanthack-signal-diagnostics = "quanthack.cli.signal_diagnostics:main"
+quanthack-router-optimize = "quanthack.cli.router_optimize:main"
+quanthack-relative-strength-optimize = "quanthack.cli.relative_strength_optimize:main"
+quanthack-volatility-squeeze-optimize = "quanthack.cli.volatility_squeeze_optimize:main"
+quanthack-dual-squeeze-optimize = "quanthack.cli.dual_squeeze_optimize:main"
+quanthack-trend-pullback-optimize = "quanthack.cli.trend_pullback_optimize:main"
+quanthack-fixing-reversal-optimize = "quanthack.cli.fixing_reversal_optimize:main"
+quanthack-liquidity-sweep-reversal-optimize = "quanthack.cli.liquidity_sweep_reversal_optimize:main"
+quanthack-kalman-trend-optimize = "quanthack.cli.kalman_trend_optimize:main"
+quanthack-macd-momentum-optimize = "quanthack.cli.macd_momentum_optimize:main"
+quanthack-multi-horizon-momentum-optimize = "quanthack.cli.multi_horizon_momentum_optimize:main"
+quanthack-autocorrelation-regime-optimize = "quanthack.cli.autocorrelation_regime_optimize:main"
+quanthack-session-momentum-optimize = "quanthack.cli.session_momentum_optimize:main"
+quanthack-champion-ensemble-optimize = "quanthack.cli.champion_ensemble_optimize:main"
+quanthack-cross-rate-optimize = "quanthack.cli.cross_rate_optimize:main"
+quanthack-crypto-allocation-compare = "quanthack.cli.crypto_allocation_compare:main"
+quanthack-crypto-overlay-compare = "quanthack.cli.crypto_overlay_compare:main"
+quanthack-crypto-overlay-sizing-compare = "quanthack.cli.crypto_overlay_sizing_compare:main"
+quanthack-crypto-overlay-fold-diagnostic = "quanthack.cli.crypto_overlay_fold_diagnostic:main"
+quanthack-crypto-overlay-component-ablation = "quanthack.cli.crypto_overlay_component_ablation:main"
+quanthack-crypto-promotion-pipeline = "quanthack.cli.crypto_promotion_pipeline:main"
+quanthack-crypto-fold-stability-optimize = "quanthack.cli.crypto_fold_stability_optimize:main"
+quanthack-asset-class-stability-optimize = "quanthack.cli.asset_class_stability_optimize:main"
+quanthack-deployment-profile-pack = "quanthack.cli.deployment_profile_pack:main"
+quanthack-deployment-profile-backtest = "quanthack.cli.deployment_profile_backtest:main"
+quanthack-deployment-profile-snapshot = "quanthack.cli.deployment_profile_snapshot:main"
+quanthack-deployment-profile-selector = "quanthack.cli.deployment_profile_selector:main"
+quanthack-deployment-profile-selector-sweep = "quanthack.cli.deployment_profile_selector_sweep:main"
+quanthack-deployment-profile-recommendation = "quanthack.cli.deployment_profile_recommendation:main"
+quanthack-deployment-profile-action-scan = "quanthack.cli.deployment_profile_action_scan:main"
+quanthack-deployment-profile-session-attribution = "quanthack.cli.deployment_profile_session_attribution:main"
+quanthack-deployment-profile-attribution-refine = "quanthack.cli.deployment_profile_attribution_refine:main"
+quanthack-deployment-profile-session-gate-refine = "quanthack.cli.deployment_profile_session_gate_refine:main"
+quanthack-deployment-profile-symbol-gate-refine = "quanthack.cli.deployment_profile_symbol_gate_refine:main"
+quanthack-deployment-profile-challenger = "quanthack.cli.deployment_profile_challenger:main"
+quanthack-deployment-profile-robustness = "quanthack.cli.deployment_profile_robustness:main"
+quanthack-deployment-profile-dependency-refine = "quanthack.cli.deployment_profile_dependency_refine:main"
+quanthack-deployment-profile-dependency-replace = "quanthack.cli.deployment_profile_dependency_replace:main"
+quanthack-deployment-profile-symbol-evidence-refine = "quanthack.cli.deployment_profile_symbol_evidence_refine:main"
+quanthack-deployment-profile-symbol-universe-refine = "quanthack.cli.deployment_profile_symbol_universe_refine:main"
+quanthack-crypto-sleeve-compare = "quanthack.cli.crypto_sleeve_compare:main"
+quanthack-dashboard = "quanthack.cli.dashboard:main"
+quanthack-validate-data = "quanthack.cli.validate_market_data:main"
+quanthack-show-instruments = "quanthack.cli.show_instruments:main"
+quanthack-import-backtest-data = "quanthack.cli.import_backtest_data:main"
+quanthack-archive-data-coverage = "quanthack.cli.archive_data_coverage:main"
+quanthack-fetch-crypto-proxy-data = "quanthack.cli.fetch_crypto_proxy_data:main"
+quanthack-merge-market-data = "quanthack.cli.merge_market_data:main"
+quanthack-generate-sample-data = "quanthack.cli.generate_sample_data:main"
+quanthack-portfolio-compare = "quanthack.cli.portfolio_compare:main"
+quanthack-strategy-attribution = "quanthack.cli.strategy_attribution:main"
+quanthack-asset-class-attribution = "quanthack.cli.asset_class_attribution:main"
+quanthack-symbol-eligibility-optimize = "quanthack.cli.symbol_eligibility_optimize:main"
+quanthack-strategy-map-optimize = "quanthack.cli.strategy_map_optimize:main"
+quanthack-sizing-frontier = "quanthack.cli.sizing_frontier:main"
+quanthack-adaptive-strategy-select = "quanthack.cli.adaptive_strategy_select:main"
+quanthack-adaptive-strategy-policy-sweep = "quanthack.cli.adaptive_strategy_policy_sweep:main"
+quanthack-adaptive-strategy-oracle = "quanthack.cli.adaptive_strategy_oracle:main"
+quanthack-adaptive-handoff-diagnostic = "quanthack.cli.adaptive_handoff_diagnostic:main"
+quanthack-portfolio-universe-scan = "quanthack.cli.portfolio_universe_scan:main"
+quanthack-portfolio-robustness = "quanthack.cli.portfolio_robustness:main"
+quanthack-portfolio-walk-forward = "quanthack.cli.portfolio_walk_forward:main"
+quanthack-portfolio-fixed-warmup-walk-forward = "quanthack.cli.portfolio_fixed_warmup_walk_forward:main"
+quanthack-portfolio-router-walk-forward = "quanthack.cli.portfolio_router_walk_forward:main"
+quanthack-live-dry-run = "quanthack.cli.live_dry_run:main"
+quanthack-mt5-probe = "quanthack.cli.mt5_probe:main"
+quanthack-mt5-capture = "quanthack.cli.mt5_capture:main"
+quanthack-manual-ticket = "quanthack.cli.manual_ticket:main"
+quanthack-mt5-ticket-sheet = "quanthack.cli.mt5_ticket_sheet:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "C4", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+packages = ["quanthack"]
+mypy_path = "src"
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+check_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"

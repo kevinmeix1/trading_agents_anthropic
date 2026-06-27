@@ -1,0 +1,178 @@
+# Competition-oriented profile for validated paper/backtest recipes.
+# Use this for research and dry-run deployment checks, not blind live trading.
+
+[competition]
+timezone = "Europe/London"
+starting_equity = 1000000.0
+open_at = "2026-06-21T22:00:00+01:00"
+checkpoints = [
+  "2026-06-22T22:00:00+01:00",
+  "2026-06-23T22:00:00+01:00",
+  "2026-06-24T22:00:00+01:00",
+  "2026-06-26T17:00:00+01:00",
+]
+protect_minutes_before = 90.0
+protect_minutes_after = 5.0
+
+[risk]
+max_gross_leverage = 6.0
+max_symbol_notional_pct = 0.80
+max_daily_loss_pct = 0.05
+max_drawdown_pct = 0.12
+checkpoint_risk_multiplier = 0.5
+min_margin_level_pct = 300.0
+max_position_loss_pct = 0.01
+max_forex_position_loss_pct = 0.01
+max_metal_position_loss_pct = 0.02
+max_crypto_position_loss_pct = 0.025
+reduce_only_margin_level_pct = 500.0
+drawdown_derisk_start_pct = 0.04
+drawdown_derisk_full_pct = 0.10
+freeze_on_daily_loss = true
+
+[strategy]
+active = "champion_ensemble"
+
+[strategy.simple_momentum]
+symbol = "EURUSD"
+target_notional_usd = 800000.0
+max_target_notional_usd = 800000.0
+min_trade_notional_usd = 1000.0
+position_sizing = "fixed"
+
+[strategy.macd_momentum]
+symbol = "EURUSD"
+fast_window = 6
+slow_window = 18
+signal_window = 5
+min_histogram_bps = 2.5
+exit_histogram_bps = 0.25
+min_macd_bps = 1.0
+min_histogram_slope_bps = 0.0
+min_trend_efficiency = 0.20
+forex_allowed_utc_hours = [10, 11, 12, 13, 14]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14]
+crypto_allowed_utc_hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+target_notional_usd = 800000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 800000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 12
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.macd_conditional_fallback]
+symbol = "EURUSD"
+conditional_notional_multiplier = 0.25
+macd_inactive_reason_keywords = ["below"]
+max_spread_bps = 10.0
+
+[strategy.macd_squeeze_complement]
+symbol = "EURUSD"
+squeeze_notional_multiplier = 1.0
+macd_inactive_reason_keywords = ["below"]
+max_spread_bps = 10.0
+
+[strategy.multi_horizon_momentum]
+symbol = "EURUSD"
+target_notional_usd = 800000.0
+max_target_notional_usd = 800000.0
+position_sizing = "volatility"
+crypto_allowed_utc_hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+[strategy.volatility_squeeze]
+symbol = "EURUSD"
+target_notional_usd = 800000.0
+max_target_notional_usd = 800000.0
+position_sizing = "volatility"
+
+[strategy.liquidity_sweep_reversal]
+symbol = "EURUSD"
+target_notional_usd = 800000.0
+max_target_notional_usd = 800000.0
+min_trade_notional_usd = 1000.0
+position_sizing = "volatility"
+crypto_allowed_utc_hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+max_holding_period = 8
+
+[strategy.quality_trend]
+symbol = "EURUSD"
+target_notional_usd = 800000.0
+max_target_notional_usd = 800000.0
+position_sizing = "volatility"
+crypto_allowed_utc_hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+[strategy.champion_ensemble]
+symbol = "EURUSD"
+target_notional_usd = 800000.0
+max_target_notional_usd = 800000.0
+min_trade_notional_usd = 1000.0
+entry_score = 0.50
+exit_score = 0.15
+strong_lead_score = 0.50
+min_signal_confidence = 0.50
+cost_buffer = 1.20
+kalman_trend_weight = 0.70
+asset_adaptive_dual_squeeze_weight = 0.30
+dual_squeeze_weight = 0.0
+trend_pullback_weight = 0.0
+fixing_reversal_weight = 0.0
+macd_momentum_weight = 0.0
+conflict_penalty = 0.70
+slippage_bps = 1.0
+fee_bps = 0.0
+max_spread_bps = 10.0
+
+[market_data]
+price_csv = "data/full_20gb_15m_prices.csv"
+quote_csv = "data/full_20gb_15m_quotes.csv"
+
+[market_quality]
+max_spread_bps = 10.0
+max_quote_age_seconds = 5.0
+
+[execution]
+route = "dry_run"
+journal_path = "outputs/dry_run_journal.jsonl"
+
+[backtest]
+price_csv = "data/full_20gb_15m_prices.csv"
+quote_csv = "data/full_20gb_15m_quotes.csv"
+slippage_bps = 1.0
+periods_per_year = 252.0
+equity_curve_csv = "outputs/backtests/competition_equity_curve.csv"
+pnl_ledger_csv = "outputs/backtests/competition_pnl_ledger.csv"
+
+[live_dry_run]
+adapter = "csv"
+timeframe = "M1"
+bars = 120
+iterations = 1
+poll_seconds = 0.0
+journal_path = "outputs/competition_live_dry_run_journal.jsonl"
+monitor_csv = "outputs/competition_live_monitor.csv"
+
+[sweep]
+lookbacks = [3, 5, 7]
+threshold_bps = [4.0, 8.0, 12.0]
+train_fraction = 0.6
+results_csv = "outputs/backtests/parameter_sweep.csv"
+
+[walk_forward]
+train_size = 480
+test_size = 96
+step_size = 96
+min_total_fills = 1
+min_profitable_fold_fraction = 0.0
+max_worst_drawdown_pct = 1.0
+cost_multipliers = [1.5, 2.0]
+ma_fast_windows = [2, 3]
+ma_slow_windows = [5, 8]
+ma_min_separation_bps = [1.0, 2.0]
+summary_csv = "outputs/backtests/walk_forward_summary.csv"
+folds_csv = "outputs/backtests/walk_forward_folds.csv"

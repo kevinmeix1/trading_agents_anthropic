@@ -1,0 +1,768 @@
+# Hackathon-aware defaults.
+# Keep these conservative until live platform behavior is verified.
+
+[competition]
+timezone = "Europe/London"
+starting_equity = 1000000.0
+open_at = "2026-06-21T22:00:00+01:00"
+checkpoints = [
+  "2026-06-22T22:00:00+01:00",
+  "2026-06-23T22:00:00+01:00",
+  "2026-06-24T22:00:00+01:00",
+  "2026-06-26T17:00:00+01:00",
+]
+protect_minutes_before = 90.0
+protect_minutes_after = 5.0
+
+[risk]
+max_gross_leverage = 2.0
+max_symbol_notional_pct = 0.25
+max_daily_loss_pct = 0.025
+max_drawdown_pct = 0.06
+checkpoint_risk_multiplier = 0.5
+min_margin_level_pct = 300.0
+max_position_loss_pct = 0.01
+
+[strategy]
+active = "simple_momentum"
+
+[strategy.simple_momentum]
+symbol = "EURUSD"
+lookback = 5
+threshold_bps = 8.0
+exit_threshold_bps = 3.0
+min_trend_efficiency = 0.4
+min_normalized_momentum = 0.0
+target_notional_usd = 50000.0
+position_sizing = "fixed"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.session_momentum]
+symbol = "EURUSD"
+lookback = 5
+threshold_bps = 8.0
+exit_threshold_bps = 3.0
+min_trend_efficiency = 0.4
+min_normalized_momentum = 0.0
+forex_allowed_utc_hours = [17, 18, 19, 20, 21]
+metal_allowed_utc_hours = [17, 18, 19, 20, 21]
+crypto_allowed_utc_hours = []
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.multi_horizon_momentum]
+symbol = "EURUSD"
+fast_lookback = 6
+slow_lookback = 24
+volatility_lookback = 12
+baseline_volatility_lookback = 48
+min_fast_move_bps = 2.0
+min_slow_move_bps = 5.0
+exit_slow_move_bps = 1.0
+min_trend_efficiency = 0.25
+min_normalized_slow_momentum = 0.0
+min_volatility_ratio = 0.35
+max_volatility_ratio = 2.50
+min_realized_volatility_bps = 0.1
+max_realized_volatility_bps = 80.0
+forex_allowed_utc_hours = [10, 11, 12, 13, 14]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14]
+crypto_allowed_utc_hours = []
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 2
+max_holding_period = 24
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.autocorrelation_regime]
+symbol = "EURUSD"
+lookback = 32
+signal_lookback = 6
+min_abs_autocorrelation = 0.18
+exit_abs_autocorrelation = 0.05
+min_momentum_bps = 4.0
+min_trend_efficiency = 0.20
+min_reversion_zscore = 0.80
+min_reversion_move_bps = 2.0
+min_expected_edge_bps = 3.0
+forex_allowed_utc_hours = [10, 11, 12, 13, 14, 15, 16, 17]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14, 15, 16, 17]
+crypto_allowed_utc_hours = []
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 16
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.intraday_seasonality]
+symbol = "EURUSD"
+period_bars = 96
+lookback_periods = 5
+signal_mode = "reversal"
+entry_threshold_bps = 0.5
+exit_threshold_bps = 0.1
+min_consistency = 0.60
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+max_holding_period = 8
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.conditional_seasonality]
+symbol = "EURUSD"
+period_bars = 96
+lookback_periods = 4
+horizon_bars = 4
+momentum_lookback = 4
+momentum_threshold_bps = 2.0
+signal_mode = "reversal"
+min_samples = 3
+entry_threshold_bps = 10.0
+exit_threshold_bps = 1.0
+min_consistency = 0.67
+min_abs_tstat = 1.50
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 4
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.ma_crossover]
+symbol = "EURUSD"
+fast_window = 3
+slow_window = 8
+min_separation_bps = 2.0
+exit_separation_bps = 0.5
+min_trend_efficiency = 0.20
+target_notional_usd = 50000.0
+position_sizing = "fixed"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.macd_momentum]
+symbol = "EURUSD"
+fast_window = 6
+slow_window = 18
+signal_window = 5
+min_histogram_bps = 2.0
+exit_histogram_bps = 0.25
+min_macd_bps = 1.0
+min_histogram_slope_bps = 0.0
+min_trend_efficiency = 0.20
+forex_allowed_utc_hours = [10, 11, 12, 13, 14]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14]
+crypto_allowed_utc_hours = []
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 12
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.macd_squeeze_complement]
+symbol = "EURUSD"
+squeeze_notional_multiplier = 1.0
+macd_inactive_reason_keywords = ["below"]
+max_spread_bps = 10.0
+
+[strategy.breakout]
+symbol = "EURUSD"
+lookback = 8
+breakout_buffer_bps = 2.0
+exit_buffer_bps = 1.0
+min_channel_width_bps = 2.0
+target_notional_usd = 50000.0
+position_sizing = "fixed"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.volatility_squeeze]
+symbol = "EURUSD"
+lookback = 24
+squeeze_window = 8
+band_stdev_multiplier = 2.0
+breakout_buffer_bps = 2.5
+exit_buffer_bps = 1.0
+max_squeeze_ratio = 0.50
+min_prior_volatility_bps = 0.5
+min_band_width_bps = 1.0
+forex_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+max_holding_period = 24
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.dual_squeeze]
+symbol = "EURUSD"
+lookback = 14
+squeeze_window = 4
+band_stdev_multiplier = 1.8
+breakout_buffer_bps = 2.5
+exit_buffer_bps = 1.0
+max_squeeze_ratio = 0.60
+min_prior_volatility_bps = 0.5
+min_band_width_bps = 1.0
+confirmation_lookback = 24
+confirmation_squeeze_window = 8
+confirmation_band_stdev_multiplier = 2.0
+confirmation_max_squeeze_ratio = 0.70
+confirmation_mode = "squeeze_bias"
+forex_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+max_holding_period = 12
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.asset_adaptive_dual_squeeze]
+symbol = "EURUSD"
+base_lookback = 14
+base_squeeze_window = 4
+base_band_stdev_multiplier = 1.8
+base_breakout_buffer_bps = 2.5
+base_max_squeeze_ratio = 0.60
+base_confirmation_lookback = 24
+base_confirmation_squeeze_window = 8
+base_confirmation_band_stdev_multiplier = 2.0
+base_confirmation_max_squeeze_ratio = 0.70
+base_confirmation_mode = "squeeze_bias"
+metal_lookback = 12
+metal_squeeze_window = 4
+metal_band_stdev_multiplier = 1.7
+metal_breakout_buffer_bps = 2.0
+metal_max_squeeze_ratio = 0.70
+metal_confirmation_lookback = 20
+metal_confirmation_squeeze_window = 6
+metal_confirmation_band_stdev_multiplier = 2.0
+metal_confirmation_max_squeeze_ratio = 0.80
+metal_confirmation_mode = "squeeze_bias"
+exit_buffer_bps = 1.0
+min_prior_volatility_bps = 0.5
+min_band_width_bps = 1.0
+forex_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+max_holding_period = 12
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.range_expansion_trend]
+symbol = "EURUSD"
+lookback = 40
+trigger_window = 4
+min_trigger_move_bps = 10.0
+exit_trigger_move_bps = 1.0
+min_range_break_bps = 3.0
+min_expansion_zscore = 2.5
+max_expansion_zscore = 8.0
+min_trend_efficiency = 0.65
+min_baseline_volatility_bps = 0.2
+max_trigger_volatility_bps = 80.0
+min_expected_edge_bps = 6.0
+forex_allowed_utc_hours = [10, 11, 12, 13, 14]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 6
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.session_breakout]
+symbol = "EURUSD"
+lookback = 8
+breakout_buffer_bps = 2.0
+exit_buffer_bps = 1.0
+min_channel_width_bps = 2.0
+min_expected_edge_bps = 4.0
+min_holding_period = 2
+min_realized_volatility_bps = 1.5
+max_realized_volatility_bps = 80.0
+allowed_utc_hours = [12, 13, 14, 15]
+metal_allowed_utc_hours = [12, 13, 14, 15, 16, 17]
+require_regime_confirmation = false
+regime_lookback = 80
+regime_min_abs_slope_bps = 0.75
+regime_min_trend_efficiency = 0.25
+regime_max_realized_volatility_bps = 120.0
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.trend_pullback]
+symbol = "EURUSD"
+lookback = 32
+pullback_window = 4
+min_trend_bps = 8.0
+min_trend_efficiency = 0.35
+min_pullback_bps = 1.0
+max_pullback_bps = 12.0
+min_resume_bps = 1.0
+min_expected_edge_bps = 3.0
+forex_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 2
+max_holding_period = 24
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.exhaustion_reversal]
+symbol = "EURUSD"
+lookback = 32
+shock_window = 4
+min_shock_bps = 12.0
+min_reversal_bps = 2.0
+min_shock_zscore = 1.5
+min_shock_efficiency = 0.65
+min_expected_edge_bps = 3.0
+forex_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 12
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.liquidity_sweep_reversal]
+symbol = "EURUSD"
+lookback = 32
+min_sweep_bps = 2.0
+reentry_buffer_bps = 0.25
+min_range_width_bps = 4.0
+max_sweep_bps = 80.0
+max_trend_efficiency = 0.75
+min_expected_edge_bps = 2.0
+forex_allowed_utc_hours = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 60000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 8
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.fixing_reversal]
+symbol = "EURUSD"
+pre_fix_lookback = 4
+min_pre_fix_move_bps = 8.0
+max_pre_fix_move_bps = 80.0
+min_pre_fix_efficiency = 0.35
+min_reversal_confirmation_bps = 1.5
+min_expected_edge_bps = 3.0
+min_realized_volatility_bps = 0.25
+max_realized_volatility_bps = 120.0
+forex_allowed_utc_hours = [14]
+metal_allowed_utc_hours = [14]
+crypto_allowed_utc_hours = []
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 4
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.kalman_trend]
+symbol = "EURUSD"
+lookback = 80
+process_noise = 0.000001
+observation_noise = 0.0001
+min_abs_slope_bps = 0.25
+min_trend_efficiency = 0.20
+max_realized_volatility_bps = 120.0
+expected_holding_bars = 6
+min_expected_edge_bps = 5.0
+forex_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+metal_allowed_utc_hours = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 2
+max_holding_period = 32
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.quality_trend]
+symbol = "EURUSD"
+kalman_lookback = 80
+kalman_process_noise = 0.000001
+kalman_observation_noise = 0.0001
+kalman_min_abs_slope_bps = 0.25
+kalman_min_trend_efficiency = 0.20
+kalman_max_realized_volatility_bps = 120.0
+kalman_expected_holding_bars = 6
+kalman_min_expected_edge_bps = 5.0
+macd_fast_window = 6
+macd_slow_window = 18
+macd_signal_window = 5
+macd_min_histogram_bps = 2.0
+macd_exit_histogram_bps = 0.25
+macd_min_macd_bps = 1.0
+macd_min_histogram_slope_bps = 0.0
+macd_min_trend_efficiency = 0.20
+min_combined_confidence = 0.30
+exit_combined_confidence = 0.10
+min_expected_edge_bps = 2.0
+forex_allowed_utc_hours = [10, 11, 12, 13, 14]
+metal_allowed_utc_hours = [10, 11, 12, 13, 14]
+crypto_allowed_utc_hours = []
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+min_holding_period = 1
+max_holding_period = 16
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.champion_ensemble]
+symbol = "EURUSD"
+lookback = 80
+target_notional_usd = 50000.0
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+entry_score = 0.50
+exit_score = 0.15
+strong_lead_score = 0.50
+min_signal_confidence = 0.50
+cost_buffer = 1.20
+max_spread_bps = 10.0
+kalman_trend_weight = 0.70
+asset_adaptive_dual_squeeze_weight = 0.30
+dual_squeeze_weight = 0.0
+trend_pullback_weight = 0.0
+fixing_reversal_weight = 0.0
+macd_momentum_weight = 0.0
+conflict_penalty = 0.70
+slippage_bps = 1.0
+fee_bps = 0.0
+
+[strategy.mean_reversion]
+symbol = "EURUSD"
+lookback = 5
+entry_zscore = 1.0
+exit_zscore = 0.25
+max_trend_bps = 15.0
+min_stdev_bps = 0.05
+target_notional_usd = 50000.0
+position_sizing = "fixed"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 50000.0
+min_trade_notional_usd = 1000.0
+max_holding_period = 20
+stop_zscore = 4.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.regime_switch]
+symbol = "EURUSD"
+lookback = 10
+momentum_min_move_bps = 8.0
+momentum_min_score = 1.0
+momentum_min_efficiency = 0.6
+mean_reversion_min_abs_zscore = 1.0
+mean_reversion_max_trend_bps = 8.0
+mean_reversion_max_efficiency = 0.5
+max_spread_bps = 10.0
+hysteresis_bars = 2
+
+[strategy.alpha_router]
+symbol = "EURUSD"
+target_notional_usd = 50000.0
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+entry_score = 0.35
+exit_score = 0.15
+min_signal_confidence = 0.20
+cost_buffer = 1.20
+max_spread_bps = 10.0
+momentum_weight = 0.30
+moving_average_weight = 0.15
+breakout_weight = 0.15
+session_breakout_weight = 0.25
+macd_momentum_weight = 0.0
+kalman_trend_weight = 0.0
+volatility_squeeze_weight = 0.0
+dual_squeeze_weight = 0.0
+exhaustion_reversal_weight = 0.0
+mean_reversion_weight = 0.35
+relative_strength_weight = 0.0
+cross_rate_weight = 0.0
+conflict_penalty = 0.50
+primary_signal_override_enabled = true
+primary_signal_min_confidence = 0.90
+primary_signal_min_edge_bps = 4.0
+adaptive_weighting_enabled = true
+adaptive_regime_lookback = 80
+chop_mean_reversion_multiplier = 1.20
+chop_trend_signal_multiplier = 0.75
+trend_aligned_signal_multiplier = 1.20
+trend_counter_signal_multiplier = 0.65
+metal_mean_reversion_multiplier = 1.25
+metal_raw_breakout_multiplier = 0.60
+volatility_regime_enabled = true
+volatility_regime_lookback = 24
+high_volatility_ratio = 1.50
+low_volatility_ratio = 0.60
+high_volatility_reversion_multiplier = 1.15
+high_volatility_trend_multiplier = 0.90
+low_volatility_reversion_multiplier = 0.95
+low_volatility_trend_multiplier = 1.05
+min_high_volatility_bps = 0.0
+relative_strength_min_score_dispersion = 0.75
+relative_strength_min_target_trend_efficiency = 0.20
+# Disabled by default after 2026-06-20 portfolio walk-forward calibration rejected
+# ML promotion: 25.0% positive folds, -3.65 bps average test signed return.
+ml_enabled = false
+ml_weight = 0.30
+ml_lookback = 5
+ml_train_window = 80
+ml_min_train_samples = 8
+ml_learning_rate = 0.15
+ml_epochs = 80
+ml_l2 = 0.001
+ml_label_threshold_bps = 1.0
+ml_entry_probability = 0.58
+ml_min_edge_bps = 3.0
+ml_min_training_accuracy = 0.55
+ml_min_samples_for_trade = 12
+ml_min_expected_edge_bps = 3.0
+ml_disable_on_negative_signed_return = true
+
+[strategy.usd_pressure]
+symbol = "EURUSD"
+lookback = 8
+pressure_threshold_bps = 2.0
+component_threshold_bps = 0.5
+min_target_volatility_bps = 0.0
+min_component_symbols = 3
+min_confirming_symbols = 2
+exit_on_conflict = true
+max_spread_bps = 10.0
+
+[strategy.relative_strength]
+symbol = "EURUSD"
+lookback = 12
+entry_zscore = 0.75
+exit_zscore = 0.25
+min_component_symbols = 4
+require_asset_class_confirmation = false
+asset_class_entry_zscore = 0.35
+asset_class_min_symbols = 2
+require_metal_trend_confirmation = false
+metal_trend_min_move_bps = 2.0
+metal_trend_min_efficiency = 0.20
+min_score_dispersion = 0.0
+min_target_trend_efficiency = 0.0
+min_abs_move_bps = 0.5
+volatility_floor_bps = 0.25
+target_notional_usd = 50000.0
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[strategy.cross_rate_reversion]
+symbol = "EURUSD"
+allowed_symbols = []
+lookback = 12
+entry_zscore = 1.0
+exit_zscore = 0.25
+min_abs_deviation_bps = 1.0
+max_abs_deviation_bps = 80.0
+min_synthetic_components = 2
+target_notional_usd = 50000.0
+position_sizing = "volatility"
+target_volatility = 0.002
+volatility_floor = 0.00001
+max_target_notional_usd = 75000.0
+min_trade_notional_usd = 1000.0
+max_holding_period = 24
+slippage_bps = 1.0
+fee_bps = 0.0
+cost_buffer = 1.0
+max_spread_bps = 10.0
+
+[market_data]
+price_csv = "data/sample_prices.csv"
+quote_csv = "data/sample_quotes.csv"
+
+[market_quality]
+max_spread_bps = 10.0
+max_quote_age_seconds = 5.0
+
+[execution]
+route = "dry_run"
+journal_path = "outputs/dry_run_journal.jsonl"
+
+[backtest]
+price_csv = "data/backtest_prices.csv"
+quote_csv = "data/backtest_quotes.csv"
+slippage_bps = 1.0
+periods_per_year = 252.0
+equity_curve_csv = "outputs/backtests/equity_curve.csv"
+pnl_ledger_csv = "outputs/backtests/pnl_ledger.csv"
+
+[live_dry_run]
+adapter = "csv"
+timeframe = "M1"
+bars = 120
+iterations = 1
+poll_seconds = 0.0
+journal_path = "outputs/live_dry_run_journal.jsonl"
+monitor_csv = "outputs/live_competition_monitor.csv"
+
+[sweep]
+lookbacks = [3, 5, 7]
+threshold_bps = [4.0, 8.0, 12.0]
+train_fraction = 0.6
+results_csv = "outputs/backtests/parameter_sweep.csv"
+
+[walk_forward]
+train_size = 10
+test_size = 5
+step_size = 5
+min_total_fills = 1
+min_profitable_fold_fraction = 0.0
+max_worst_drawdown_pct = 1.0
+cost_multipliers = [1.5, 2.0]
+ma_fast_windows = [2, 3]
+ma_slow_windows = [5, 8]
+ma_min_separation_bps = [1.0, 2.0]
+summary_csv = "outputs/backtests/walk_forward_summary.csv"
+folds_csv = "outputs/backtests/walk_forward_folds.csv"
